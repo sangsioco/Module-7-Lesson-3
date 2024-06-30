@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>New HTML 5 <Input></Input></title>
+</head>
+<!----Task 1: Implementing email input---->
+<body>
+    <h2>Email Input Form</h2>
+    <form action="/submit_email" method="post">
+        <label for="email">Email Address:</label><br>
+        <input type="email" id="email" name="email" placeholder="Enter your email address" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+<!----Task 2: Utilizing Number Input------>
+    <h2>Quantity Input Form</h2>
+    <form action="/submit_quantity" method="post">
+        <label for="quantity">Quantity:</label><br>
+        <input type="number" id="quantity" name="quantity" placeholder="Enter quantity" min="1" max="100" step="1" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+<!----Task 3: Employing Date Input-------->
+    <h2>Date Input Form</h2>
+    <form action="/submit_date" method="post">
+        <label for="date">Select a Date:</label><br>
+        <input type="date" id="date" name="date" placeholder="yyyy-mm-dd" min="2023-01-01" max="2024-12-31" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+<!----Task 4: Enhancing User Experience with Range Input---->
+    <h2>Rating Input Form</h2>
+    <style>
+        .value-display {
+            font-weight: bold;
+            margin-left: 10px;
+        }
+    </style>
+    <script>
+        function updateRangeValue(value) {
+            document.getElementById('rangeValue').innerText = value;
+        }
+    </script>
+
+    <form action="/submit_range" method="post">
+        <label for="range">Rating (1 to 10):</label><br>
+        <input type="range" id="range" name="range" min="1" max="10" step="1" oninput="updateRangeValue(this.value)" required>
+        <span id="rangeValue" class="value-display">5</span><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+<!----Task 5 (BONUS): Capturing Color with Color Input------>
+    <h2>Color Input Form</h2>
+    <form action="/submit_color" method="post">
+        <label for="color">Choose a Color:</label><br>
+        <input type="color" id="color" name="color" value="#ff0000" required><br><br>
+        <button type="submit">Submit</button>
+    </form>
+
+<!----Objective 2: Building Comprehensive Web Form---------->
+    <h2 id="form-title">Accessible Selection Experience Form</h2>
+    <form action="/submit_preferences" method="post" aria-labelledby="form-title">
+<!----Select Menu for Favorite Programming Language--------->
+    <div role="group" aria-labelledby="language-label">
+        <label id="language-label" for="language">Favorite Programming Language:</label><br>
+            <select id="language" name="language" required aria-required="true">
+                <option value="" disabled selected>Select your language</option>
+                <option value="python">Python</option>
+                <option value="javascript">JavaScript</option>
+                <option value="java">Java</option>
+                <option value="csharp">C#</option>
+                <option value="cpp">C++</option>
+                <option value="ruby">Ruby</option>
+            </select>
+    </div><br>
+    
+<!----Radio Buttons for Expertise Level--------------------->
+    <div role="group" aria-labelledby="expertise-label">
+        <label id="expertise-label">Level of Expertise:</label><br>
+            <input type="radio" id="beginner" name="expertise" value="beginner" required aria-required="true">
+            <label for="beginner">Beginner</label><br>
+            <input type="radio" id="intermediate" name="expertise" value="intermediate">
+            <label for="intermediate">Intermediate</label><br>
+            <input type="radio" id="advanced" name="expertise" value="advanced">
+            <label for="advanced">Advanced</label>
+    </div><br>
+    
+<!----Checkboxes for Preferred Development Platforms------------------->
+    <div role="group" aria-labelledby="platforms-label">
+        <label id="platforms-label">Preferred Development Platforms:</label><br>
+        <input type="checkbox" id="web" name="platforms" value="web">
+        <label for="web">Web</label><br>
+        <input type="checkbox" id="mobile" name="platforms" value="mobile">
+        <label for="mobile">Mobile</label><br>
+        <input type="checkbox" id="desktop" name="platforms" value="desktop">
+        <label for="desktop">Desktop</label>
+    </div><br>
+        <button type="submit">Submit</button>
+</body>
+</html>
+
